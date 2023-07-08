@@ -107,7 +107,7 @@ rxfetch
 export LANG=en_US.UTF-8
 export BROWSER=brave
 alias blue=$HOME/stuff/connect_headphones.sh
-alias rust='cd $HOME/Projects/RustStuff/'
+alias rustlc='cd $HOME/Projects/RustStuff/'
 
 eval $(thefuck --alias)
 
