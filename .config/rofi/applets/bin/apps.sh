@@ -22,29 +22,29 @@ elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
 fi
 
 # CMDs (add your apps here)
-discord_cmd='discord'
-file_cmd='alacritty --command nnn'
-vscode_cmd='code'
-intellij_cmd='/home/gaurav/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/222.3345.118/bin/idea.sh'
-web_cmd='brave'
-music_cmd='spotify'
+term_cmd='alacritty'
+file_cmd='thunar'
+text_cmd='geany'
+web_cmd='firefox'
+music_cmd='alacritty -e ncmpcpp'
+setting_cmd='xfce4-settings-manager'
 
 # Options
 layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$layout" == 'NO' ]]; then
-	option_1=" Browser <span weight='light' size='small'><i>($web_cmd)</i></span>"
-	option_2=" VS Code <span weight='light' size='small'><i>($vscode_cmd)</i></span>"
-	option_3=" IntelliJ <span weight='light' size='small'><i>(idea)</i></span>"
-	option_4=" Music <span weight='light' size='small'><i>($music_cmd)</i></span>"
-	option_5="﨧 Discord <span weight='light' size='small'><i>($discord_cmd)</i></span>"
-	option_6=" Files <span weight='light' size='small'><i>(nnn)</i></span>"
+	option_1=" Terminal <span weight='light' size='small'><i>($term_cmd)</i></span>"
+	option_2=" Files <span weight='light' size='small'><i>($file_cmd)</i></span>"
+	option_3=" Editor <span weight='light' size='small'><i>($text_cmd)</i></span>"
+	option_4=" Browser <span weight='light' size='small'><i>($web_cmd)</i></span>"
+	option_5=" Music <span weight='light' size='small'><i>($music_cmd)</i></span>"
+	option_6=" Settings <span weight='light' size='small'><i>($setting_cmd)</i></span>"
 else
-	option_1=""
-	option_2=""
-	option_3=""
-	option_4=""
-	option_5="ﭮ"
-	option_6=""
+	option_1=""
+	option_2=""
+	option_3=""
+	option_4=""
+	option_5=""
+	option_6=""
 fi
 
 # Rofi CMD
@@ -66,17 +66,17 @@ run_rofi() {
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		${web_cmd}
+		${term_cmd}
 	elif [[ "$1" == '--opt2' ]]; then
-		${vscode_cmd}
-	elif [[ "$1" == '--opt3' ]]; then
-		${intellij_cmd}
-	elif [[ "$1" == '--opt4' ]]; then
-		${music_cmd}
-	elif [[ "$1" == '--opt5' ]]; then
-		${discord_cmd}
-	elif [[ "$1" == '--opt6' ]]; then
 		${file_cmd}
+	elif [[ "$1" == '--opt3' ]]; then
+		${text_cmd}
+	elif [[ "$1" == '--opt4' ]]; then
+		${web_cmd}
+	elif [[ "$1" == '--opt5' ]]; then
+		${music_cmd}
+	elif [[ "$1" == '--opt6' ]]; then
+		${setting_cmd}
 	fi
 }
 

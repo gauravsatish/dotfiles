@@ -1,43 +1,33 @@
-#!/bin/sh
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
 
 killall -q polybar
 killall -q dunst
 killall -q picom
 
-xrdb -merge ~/.Xresources
-pgrep -x sxhkd > /dev/null || sxhkd &
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
-############Window Settings ####################
+picom &
 
 bspc config border_width         1
-bspc config window_gap           5 
+bspc config window_gap           0
 bspc config focus_follows_pointer	true
 bspc config split_ratio          0.50
 bspc config borderless_monocle   false
 bspc config gapless_monocle      false
 bspc config ignore_ewmh_focus true
 
-bspc config focused_border_color "#131a1c"
-bspc config normal_border_color "#131a1c"
 
-bspc config external_rules_command "$HOME/stuff/external-rules.sh"
+bspc config focused_border_color "454545"
+bspc config normal_border_color "1a1a1a"
 
-######### Program settings ################
-bspc rule -a Spotify desktop='^3'
-bspc rule -a spotify desktop='^3'
 bspc rule -a discord desktop='^4' follow=off focus=off
+bspc rule -a 'Minecraft* 1.19.4' desktop='^2'
 bspc rule -a Brave-browser monitor='^2'
-dunst & 
 
-######### Other Settings ################
 xsetroot -cursor_name left_ptr &
-xinput set-prop 12 309 1
-picom & 
-
-######## THe real beauty behind rice ####
-xwallpaper --zoom ~/.config/wallpapers/wallpaper.png & 
-
-pactl set-sink-volume 0 50%
+xinput set-prop 12 309 1 &
 polybar &
-# ~/stuff/spotify-classname.sh &
+dunst &
+hsetroot -solid '#000000'
