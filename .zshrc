@@ -102,13 +102,13 @@ source $ZSH/oh-my-zsh.sh
 
 alias e=micro
 alias v=nvim
+alias ls="ls -a --color=auto"
 rxfetch
 export LANG=en_US.UTF-8
-alias shut=shutdown
-alias shutdown=$HOME/shutdown.sh
-# alias ls='ls -a'
 export BROWSER=brave
 alias blue=$HOME/stuff/connect_headphones.sh
-alias coords='micro $HOME/stuff/world-coords.txt'
+alias rust='cd $HOME/Projects/RustStuff/'
 
 eval $(thefuck --alias)
+
+alias prismlc='cd $HOME/.local/share/PrismLauncher/instances'
