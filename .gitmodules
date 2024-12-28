@@ -1,0 +1,3 @@
+[submodule "hyprland-ignis-linkfrg"]
+	path = hyprland-ignis-linkfrg
+	url = https://github.com/linkfrg/dotfiles.git
